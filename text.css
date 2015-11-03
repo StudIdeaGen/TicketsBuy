@@ -1,0 +1,130 @@
+body {
+	width: 100%;
+	height: 100%;
+	background:linear-gradient(to top left,  #F0FFFF,#63B8FF);
+	
+}
+header{
+	width: 100%;
+	height: 150px;
+	font-family: Monotype Corsiva;
+	font-size: 35px;
+	text-align: center;
+ name{
+	float:center;
+ }	
+}
+
+nav{
+	width: 100%;
+	min-height: 40px;
+	font-family: Monotype Corsiva ;
+	text-align: center;
+	
+}
+main{
+	width: 100%;
+	min-height: 400px;
+	font-family: Monotype Corsiva ;
+	text-align: center;
+	border-top: 4px groove #0000CD;
+	}
+footer{
+	width: 100%;
+	height: 150px;
+	font-family: Monotype Corsiva ;
+	text-align:left;
+	
+}
+img{
+	width:400px;
+}
+nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;   
+}
+
+nav li {
+    float: left;
+}
+nav a {
+    float: left;
+    color: #eee;
+    margin: 0 5px;
+    padding: 3px;
+    text-decoration: none;
+    border: 1px solid #831608;
+    font: bold 14px Arial, Helvetica;   
+    background-color: #831608;
+    background-image: linear-gradient(#bb413b, #831608);
+    border-radius: 5px;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.8); 
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 3px 0 rgba(0, 0, 0, 0.7), 0 2px 2px rgba(0, 0, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0.5) inset; 
+}
+
+nav a:hover {
+    background-color: #bb413b;
+    background-image: linear-gradient(#831608, #bb413b);
+}
+
+nav a:active {
+    background: #bb413b;
+    position: relative;
+    top: 2px;    
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.7) inset; 
+}
+
+nav span {
+    border: 1px dashed #eba1a3;
+    display: inline-block;
+    padding: 4px 15px;
+    cursor: pointer;    
+    background-color: #bb413b;
+    background-image: linear-gradient(#d4463c, #aa2618);
+}
+
+nav a:hover span {   
+    background-color: #bb413b;
+    background-image: linear-gradient(#aa2618, #d4463c);
+}
+#log{
+ background:#0000CD;
+ color:#FFF;
+ width:400px;
+height:200px;
+float:left;
+margin: 15px;
+padding:5px;
+font-size: 20px;
+border: 1px solid #E0FFFF;
+position:fixed;
+left:37%;
+}
+#marchrut{
+text-align: center;
+ background:#0000CD;
+ color:#FFF;
+ width:500px;
+height:200px;
+float:left;
+margin: 15px;
+padding:5px;
+border: 1px solid #E0FFFF;
+position:fixed;
+left:35%;
+}
+h1{
+margin: 5px;
+}
+p{margin:15px;
+}
+header img {
+	width:300px;
+	height:150px;
+	float:left;
+	clear:both;
+}
+#line{
+	background-color:
+}
