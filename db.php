@@ -34,4 +34,5 @@ function TicketBuy(){
 	CreateTable("Orders",$Orders,$conn);
 };
 TicketBuy();
+mysql_close();
 ?>
