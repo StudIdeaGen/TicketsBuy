@@ -32,7 +32,8 @@ function TicketBuy(){
 	CreateTable("users",$users,$conn);
 	CreateTable("routers",$routers,$conn);
 	CreateTable("Orders",$Orders,$conn);
+	mysql_close($conn);
 };
 TicketBuy();
-mysql_close();
+
 ?>
