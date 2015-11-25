@@ -10,8 +10,11 @@ UNIQUE (name));
 create table orders(
 order_id int(11) NOT NULL  AUTO_INCREMENT PRIMARY KEY,
 route_id int(11) NOT NULL  REFERENCES routes(route_id),
-name varchar(40) NOT NULL,
-UNIQUE (name));
+user_id int(11) NOT NULL  REFERENCES user(user_id),
+date_servin date,
+type_wagon varchar(20) NOT NULL,
+places varchar(20) NOT NULL,
+additional_services varchar(50) NOT NULL);
 
 create table routes(
 rout_id int(11) NOT NULL  AUTO_INCREMENT PRIMARY KEY,
@@ -29,4 +32,3 @@ password varchar(20) NOT NULL,
 phone int(20) NOT NULL,
 points int(20) NOT NULL);
 
-insert into users (login,password,is_admin) value('admin','1',1);
