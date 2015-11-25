@@ -1,0 +1,32 @@
+drop database ticketbuy;
+create database ticketbuy;
+use ticketbuy;
+
+create table cities(
+city_id int(11) NOT NULL  AUTO_INCREMENT PRIMARY KEY,
+name varchar(40) NOT NULL,
+UNIQUE (name));
+
+create table orders(
+order_id int(11) NOT NULL  AUTO_INCREMENT PRIMARY KEY,
+route_id int(11) NOT NULL  REFERENCES routes(route_id),
+name varchar(40) NOT NULL,
+UNIQUE (name));
+
+create table routes(
+rout_id int(11) NOT NULL  AUTO_INCREMENT PRIMARY KEY,
+city1_id int(11) NOT NULL REFERENCES cities(city_id),
+city2_id int(11) NOT NULL  REFERENCES cities(city_id),
+price int(20) NOT NULL,
+time1 date NOT NULL,
+time2 date NOT NULL);
+
+create table user(
+user_id int(11) NOT NULL  AUTO_INCREMENT PRIMARY KEY,
+name varchar(40) NOT NULL,
+login varchar(20) NOT NULL, 
+password varchar(20) NOT NULL,
+phone int(20) NOT NULL,
+points int(20) NOT NULL);
+
+insert into users (login,password,is_admin) value('admin','1',1);
