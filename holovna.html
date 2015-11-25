@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
+<? php
+import db.php;
+TicketBuy();
+?>
 <html>
  	<head>
   		<meta charset="utf-8">
@@ -6,32 +10,37 @@
 		<link rel="stylesheet" type="text/css" href="text.css">
 	</head>
 	<body>
+		 <div class="content-bg">
+           <div class="content-white">
 		<header>
-        <div id="name">TrainTick
-		<img src="train.png"></img>
-		</div>
-		
+			<div id="name">
+				<img src="train.png"></img>TrainTick
+				<h2> Сервіс онлайн бронювання квитків на потяг</h2>
+			</div>
 		</header>
         <nav>
 			<ul>
 				<li><a href="holovna.html"><span>Головна</span></a></li>
 				<li><a href="kabinet.html"><span>Особистий кабінет</span></a></li>
-				<li><a href="kabinet.html"><span>Інформація про нас</span></a></li>
+				<li><a href="inform.html"><span>Інформація про нас</span></a></li>
 			</ul>
         </nav>
         <main>
 			<div id="marchrut"><form action="" method="post">
 				<h1>Оберіть маршрут</h1>
-			<p ><input type="text" maxlength="25" size="30" name="from" value="Звідки"></p>
-			<p ><input type="text" maxlength="25" size="30" name="where" value="Куди"></p>
-			<p>Дата відправки: <input type="date" name="calendar"></p>
-				<input type="submit" value="Знайти">
+					<div>Звідки:</div>
+						<p><input type="text" maxlength="25" size="25" name="from"></p>
+					<div>Куди:</div>
+						<p><input type="text" maxlength="25" size="25" name="where"></p>
+					<div>Дата відправки:</div> 
+						<p><input type="date" name="calendar" size="25"></p>
+					<h1><input type="submit" value="Знайти"></h1>
 			</form></div>	
         </main> 
         <footer>
-		(c)2015 traintick<br>
-		"TrainTick" -сервіс онлайн бронювання.<br>
-		Ми прагнемо бути №1 в обслуговуванні пасажирів.<br>
+			<div>(c)2015 traintick</div>
+			<div>"TrainTick" -сервіс онлайн бронювання.</div>
+			<div>Ми прагнемо бути №1 в обслуговуванні пасажирів.</div>
         </footer>
 	</body>
 </html>
