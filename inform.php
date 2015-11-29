@@ -1,11 +1,18 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
  	<head>
-  		<meta charset="utf-8">
 		<title>TrainTick</title>
 		<link rel="stylesheet" type="text/css" href="text.css">
 	</head>
 	<body>
+	<?php
+				$db = "ticketbuy";
+				$link = mysql_pconnect ("localhost", "root", "") ;
+				if ( !$link )  die ("Неможливо підключитись до  MySQL");
+				{
+					mysql_select_db ( $db ) or die ("Неможливо відкрити $db");
+				}
+    ?>
 	 <div class="content-bg">
      <div class="content-white">
 		<header>
@@ -16,9 +23,9 @@
 		</header>
         <nav>
 			<ul>
-				<li><a href="holovna.html"><span>Головна</span></a></li>
-				<li><a href="kabinet.html"><span>Особистий кабінет</span></a></li>
-				<li><a href="inform.html"><span>Інформація про нас</span></a></li>
+				<li><a href="holovna.php"><span>Головна</span></a></li>
+				<li><a href="kabinet.php"><span>Особистий кабінет</span></a></li>
+				<li><a href="inform.php"><span>Інформація про нас</span></a></li>
 			</ul>
         </nav>
         <main>
