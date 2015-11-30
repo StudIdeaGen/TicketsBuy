@@ -81,12 +81,12 @@ include 'db_con.php';
 					<h1><input type="submit" value="Знайти"></h1>
 			</form></div>	
         </main> 
-    </div>
-</div>
+    
         <footer>
 			<div>(c)2015 traintick</div>
 			<div>"TrainTick" -сервіс онлайн бронювання.</div>
 			<div>Ми прагнемо бути №1 в обслуговуванні пасажирів.</div>
-        </footer>
+        </footer></div>
+</div>
 	</body>
 </html>
