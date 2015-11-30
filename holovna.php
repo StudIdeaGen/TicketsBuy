@@ -1,18 +1,64 @@
-﻿<html>
+﻿<!DOCTYPE html>
+<?php
+include 'db_con.php';
+?>
+<html>
  	<head>
+ 		<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+		<?php 
+			$sql = "SELECT name FROM cities";
+			$result = mysql_query($sql);
+				if (mysql_num_rows($result) > 0) {
+				$i=0;$cityArray=array();
+				while($row = mysql_fetch_array($result)) {
+					$cityArray[$i]=(string)$row['name'];
+					$i=$i+1;
+					}
+					} else {
+						echo "0 results";
+							}
+			class City
+				{
+					 var $cityList;
+					 function init($list){
+						 $this->cityList=$list;
+					 }
+						function makeList()
+						{
+							echo json_encode($this->cityList);
+						}
+						function input($text)
+						{
+								$list=this.makeList($_POST[$text]);
+								this.showList($list);
+						}
+					
+				}
+			$city1= new City;
+			$city2= new City;
+			$city1->init($cityArray);
+			$city2->init($cityArray);
+		
+		?>
+		<script>
+		  $(function() {
+    var availableTags = <?php  echo $city1->makeList();?>;
+    $("#myForm input[name='from']").autocomplete({
+      source: availableTags
+    });
+	$("#myForm input[name='where']").autocomplete({
+      source: availableTags
+    });
+  });
+		</script>
+  		<meta charset="utf-8">
 		<title>TrainTick</title>
 		<link rel="stylesheet" type="text/css" href="text.css">
 	</head>
 	<body>
-	<?php
-				$db = "ticketbuy";
-				$link = mysql_pconnect ("localhost", "root", "") ;
-				if ( !$link )  die ("Неможливо підключитись до  MySQL");
-				{
-					mysql_select_db ( $db ) or die ("Неможливо відкрити $db");
-				}
-    ?>
-	
 		 <div class="content-bg">
            <div class="content-white">
 		<header>
@@ -29,17 +75,19 @@
 			</ul>
         </nav>
         <main>
-			<div id="marchrut"><form action="" method="post">
+			<div id="marchrut"><form action="" method="post" id="myForm">
 				<h1>Оберіть маршрут</h1>
 					<div>Звідки:</div>
-						<p><input type="text" maxlength="25" size="25" name="from"></p>
+						<p><input type="text" maxlength="25" size="25" name="from" ></p>
 					<div>Куди:</div>
-						<p><input type="text" maxlength="25" size="25" name="where"></p>
+						<p><input type="text" maxlength="25" size="25" name="where" ></p>
 					<div>Дата відправки:</div> 
 						<p><input type="date" name="calendar" size="25"></p>
 					<h1><input type="submit" value="Знайти"></h1>
 			</form></div>	
         </main> 
+    </div>
+</div>
         <footer>
 			<div>(c)2015 traintick</div>
 			<div>"TrainTick" -сервіс онлайн бронювання.</div>
