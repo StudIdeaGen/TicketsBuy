@@ -6,8 +6,8 @@ include 'db_con.php';
  	<head>
  		<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 		<?php 
 			$sql = "SELECT name FROM cities";
 			$result = mysql_query($sql);
@@ -29,13 +29,7 @@ include 'db_con.php';
 						function makeList()
 						{
 							echo json_encode($this->cityList);
-						}
-						function input($text)
-						{
-								$list=this.makeList($_POST[$text]);
-								this.showList($list);
-						}
-					
+						}											
 				}
 			$city1= new City;
 			$city2= new City;
@@ -45,12 +39,13 @@ include 'db_con.php';
 		?>
 		<script>
 		  $(function() {
-    var availableTags = <?php  echo $city1->makeList();?>;
+    var availableTags1 = <?php  echo $city1->makeList();?>;
+	var availableTags2 = <?php  echo $city2->makeList();?>;
     $("#myForm input[name='from']").autocomplete({
-      source: availableTags
+      source: availableTags1
     });
 	$("#myForm input[name='where']").autocomplete({
-      source: availableTags
+      source: availableTags2
     });
   });
 		</script>
