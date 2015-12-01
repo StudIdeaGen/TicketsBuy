@@ -19,22 +19,10 @@ session_start();
 			if(isset($_POST['submit'])) 
 			{
 				$err = array();
-				$prizv = $_POST['prizv'];
-				$name = $_POST['name'];
-				$login = $_POST['login'];
-				$password = $_POST['password'];
-				$phone= $_POST['phone'];
-				
-				if(!preg_match("/^[a-zA-Z0-9]+$/",$_POST['login']))
-				{
-					$err[] = "Логін може складатися тільки з букв англійського алфавіту і цифр";
-				}
-				if(strlen($_POST['login']) < 3 or strlen($_POST['login']) > 30)
-				{
-					$err[] = "Логін повинен бути не менше 3 і не більше 30 символів";
-				}
-				
-					$numQuery = mysql_query ("SELECT login  FROM user") or die (mysql_error());
+				$city1= $_POST['city1'];
+				$city2 = $_POST['city2'];
+				$price = $_POST['price'];				
+					$numQuery = mysql_query ("SELECT name  FROM cities") or die (mysql_error());
 				$a=0;
 				while($data=mysql_fetch_array($numQuery,MYSQL_ASSOC))
 				{
@@ -88,18 +76,14 @@ session_start();
         <main>
 		<form method="post" action="regist.php">
 			<div id="registration">
-			<h1>Реєстрація:</h1>
-			<p2>Прізвище</p2>
-			<div><input type="text" maxlength="25" size="20" name="prizv"></div>
-			<p2>Ім'я</p2>
-			<div><input type="text" maxlength="25" size="20" name="name"></div>
-			<p2>Логін</p2>
-			<div><input type="text" maxlength="25" size="20" name="login"></div>	
-			<p2>Пароль</p2>
-			<div><input type="password" maxlength="25" size="20" name="password"></div>
-			<p2>Номер телефону</p2>
-			<div><input type="text" maxlength="25" size="20" name="phone"></div>
-			<div><input name="submit" type="submit" value="Зареєструватися" required></div>
+			<h1>Додати дані:</h1>
+			<p2>Звідки</p2>
+			<div><input type="text" maxlength="25" size="20" name="city1"></div>
+			<p2>Куди</p2>
+			<div><input type="text" maxlength="25" size="20" name="city2"></div>
+			<p2>Ціна квитка</p2>
+			<div><input type="text" maxlength="25" size="20" name="price"></div>	
+			<div><input name="submit" type="submit" value="Додати" required></div>
 		</form>
         </main> 
         <footer>

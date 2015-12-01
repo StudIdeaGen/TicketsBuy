@@ -1,5 +1,5 @@
-﻿<!DOCTYPE html>
 <?php
+session_start();
 include 'db_con.php';
 ?>
 <html>
@@ -70,7 +70,7 @@ include 'db_con.php';
 			</ul>
         </nav>
         <main>
-			<div id="marchrut"><form action="" method="post" id="myForm">
+			<div id="marchrut"><form action="b.php" method="post" id="myForm">
 				<h1>Оберіть маршрут</h1>
 					<div>Звідки:</div>
 						<p><input type="text" maxlength="25" size="25" name="from" ></p>
@@ -78,7 +78,7 @@ include 'db_con.php';
 						<p><input type="text" maxlength="25" size="25" name="where" ></p>
 					<div>Дата відправки:</div> 
 						<p><input type="date" name="calendar" size="25"></p>
-					<h1><input type="submit" value="Знайти"></h1>
+					<h1><input type="submit" value="Знайти" style="margin-top:10px;"></h1>
 			</form></div>	
         </main> 
     

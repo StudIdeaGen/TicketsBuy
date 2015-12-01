@@ -1,39 +1,12 @@
-﻿<!DOCTYPE html>
+<?php 
+session_start();
+?>
 <html>
  	<head>
 		<title>TrainTick</title>
 		<link rel="stylesheet" type="text/css" href="text.css">
 	</head>
 	<body>
-	<?php
-				$db = "ticketbuy";
-				$link = mysql_pconnect ("localhost", "root", "") ;
-				if ( !$link )  die ("Неможливо підключитись до  MySQL");
-				{
-					mysql_select_db ( $db ) or die ("Неможливо відкрити $db");
-				}
-				if(isset($_POST['submit'])) {
-				
-				$login = $_POST['login'];
-				$password = $_POST['password'];
-				
-				
-			$query = mysql_query ("SELECT user_id, password FROM user WHERE login='".$login."' ") or die (mysql_error());
-		
-			$data = mysql_fetch_assoc($query);
-			
-			if($data['password'] == $_POST['password'])
-				{
-					echo "hgh";
-					
-				}
-				else echo"Ви ввели неправельні дані";
-				
-				
-  }
-
-					
-    ?>
 	 <div class="content-bg">
      <div class="content-white">
 		<header>
@@ -52,15 +25,19 @@
         <main>
 		
 			<div id="log">
-				<form method="post" action="kabinet.php">
-			<h1>Ваші дані</h1>
-				<p>Логін:</p>
-					<div><input type="text" maxlength="25" size="20" name="login"></div>
-				<p>Пароль:</p>
-					<div><input type="password" maxlength="25" size="20" name="password"></div>
-				<p><input  name="submit" type="submit" value="Ввійти"></p>
-				<div><input type="button" value="Зареєструватися" onClick="location.href='regist.php';"/></div>
-			</form></div>
+				<?
+					if(isset($_SESSION['login']))
+					{
+						require_once("userdata.php");
+						//echo "jhfbvjh";
+					}
+					else
+					{
+						require_once("auth_form.php");
+						//echo "456789";
+					}
+				?>
+			</div>
 				
         </main> 
         <footer>
@@ -68,5 +45,7 @@
 			<div>"TrainTick" -сервіс онлайн бронювання.</div>
 			<div>Ми прагнемо бути №1 в обслуговуванні пасажирів.</div>
         </footer>
+		</div>
+		</div>
 	</body>
 </html>
